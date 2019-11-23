@@ -1,0 +1,10 @@
+#!/bin/bash
+
+TRY_AGAIN=1
+while [ $TRY_AGAIN -ne 0 ]; do
+    echo 'select now()' | psql > /dev/null 2>&1
+    TRY_AGAIN=$?
+    if [ "$TRY_AGAIN" -ne 0 ]; then
+        sleep 1
+    fi
+done
